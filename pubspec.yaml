@@ -1,0 +1,20 @@
+name: mpflutter_plugin_template
+description: The MPFlutter plugin template.
+publish_to: none
+version: 0.0.1
+author: /
+homepage: /
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter: 
+    git: 
+      url: https://github.com/mpflutter/mpflutter
+      path: packages/flutter
+  mpcore: 
+    git: 
+      url: https://github.com/mpflutter/mpflutter
+      path: packages/mpcore
+  

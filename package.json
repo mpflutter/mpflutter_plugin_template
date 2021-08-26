@@ -1,0 +1,14 @@
+{
+  "name": "mpflutter_plugin_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "tsc && cd dist && browserify plugin.js > ../index.js && uglifyjs ../index.js -m > ../index.min.js && cd .. && rm -rf dist && mkdir dist && mv index.min.js dist/index.min.js && rm index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
