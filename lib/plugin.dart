@@ -7,8 +7,9 @@ class TemplatePlugin {
     methodChannel.invokeMethod('sayHello');
   }
 
-  static getHello() async {
+  static Future<String> getHello() async {
     final text = await methodChannel.invokeMethod('getHello');
     print('The text = ' + text);
+    return text;
   }
 }
