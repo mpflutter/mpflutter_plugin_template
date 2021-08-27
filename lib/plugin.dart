@@ -2,6 +2,7 @@ import 'package:flutter/services.dart';
 
 class TemplatePlugin {
   static MethodChannel methodChannel = MethodChannel('TemplatePlugin');
+  static EventChannel eventChannel = EventChannel('TemplatePluginEvent');
 
   static sayHello() {
     methodChannel.invokeMethod('sayHello');
@@ -11,5 +12,11 @@ class TemplatePlugin {
     final text = await methodChannel.invokeMethod('getHello');
     print('The text = ' + text);
     return text;
+  }
+
+  static installEventListener() {
+    eventChannel.receiveBroadcastStream({"a": "b"}).listen((event) {
+      print(event);
+    });
   }
 }
