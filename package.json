@@ -10,5 +10,10 @@
     "build": "tsc && cd dist && browserify plugin.js > ../index.js && uglifyjs ../index.js -m > ../index.min.js && cd .. && rm -rf dist && mkdir dist && mv index.min.js dist/index.min.js && rm index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "typescript": "^4.4.3",
+    "uglify-js": "^3.14.2"
+  }
 }
