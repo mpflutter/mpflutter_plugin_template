@@ -76,11 +76,9 @@ packages:
   mpcore:
     dependency: "direct main"
     description:
-      path: "packages/mpcore"
-      ref: HEAD
-      resolved-ref: d1d6d47b9b518ca83f44c5c3a86626d71221d8fe
-      url: "https://github.com/mpflutter/mpflutter"
-    source: git
+      path: "../mpflutter/packages/mpcore"
+      relative: true
+    source: path
     version: "0.0.1"
   path:
     dependency: transitive

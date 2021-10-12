@@ -1,3 +1,5 @@
+import { Foo } from "./foo_platform_view/foo";
+
 declare var window: any;
 declare var global: any;
 
@@ -30,3 +32,4 @@ export class TemplatePluginEvent {
 
 (window || global).TemplatePlugin = new TemplatePlugin();
 (window || global).TemplatePluginEvent = new TemplatePluginEvent();
+(window || global).Foo = Foo;

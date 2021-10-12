@@ -17,4 +17,6 @@ dependencies:
     git: 
       url: https://github.com/mpflutter/mpflutter
       path: packages/mpcore
-  
+dependency_overrides:
+  mpcore:
+    path: ../mpflutter/packages/mpcore
