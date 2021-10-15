@@ -1,8 +1,10 @@
 import 'package:flutter/services.dart';
 
 class TemplatePlugin {
-  static MethodChannel methodChannel = MethodChannel('TemplatePlugin');
-  static EventChannel eventChannel = EventChannel('TemplatePluginEvent');
+  static MethodChannel methodChannel =
+      MethodChannel('com.mpflutter.template_plugin');
+  static EventChannel eventChannel =
+      EventChannel('com.mpflutter.template_plugin_event');
 
   static sayHello() {
     methodChannel.invokeMethod('sayHello');

@@ -1,17 +1,16 @@
-declare var window: any;
-declare var global: any;
+/// <reference path="./plugin.d.ts" />
 
-export class TemplatePlugin {
+export class TemplatePlugin implements MPPlugin {
   sayHello() {
     console.log("Hello, World!");
   }
 
   getHello() {
-    return "Hello, World!";
+    return "Hello, World!"; 
   }
 }
 
-export class TemplatePluginEvent {
+export class TemplatePluginEvent implements MPPluginEvent {
   private intervalHandler: any;
 
   listen(params: any, eventSink: (data: string) => void) {
@@ -28,5 +27,11 @@ export class TemplatePluginEvent {
   }
 }
 
-(window || global).TemplatePlugin = new TemplatePlugin();
-(window || global).TemplatePluginEvent = new TemplatePluginEvent();
+pluginRegisterer.registerPlugin(
+  "com.mpflutter.template_plugin",
+  new TemplatePlugin()
+);
+pluginRegisterer.registerPlugin(
+  "com.mpflutter.template_plugin_event",
+  new TemplatePluginEvent()
+);
