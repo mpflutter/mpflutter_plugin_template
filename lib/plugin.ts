@@ -1,12 +1,14 @@
 /// <reference path="./plugin.d.ts" />
 
+import { Foo } from "./foo/foo";
+
 export class TemplatePlugin implements MPPlugin {
   sayHello() {
     console.log("Hello, World!");
   }
 
   getHello() {
-    return "Hello, World!"; 
+    return "Hello, World!";
   }
 }
 
@@ -35,3 +37,4 @@ pluginRegisterer.registerPlugin(
   "com.mpflutter.template_plugin_event",
   new TemplatePluginEvent()
 );
+pluginRegisterer.registerPlatformView("com.mpflutter.foo", Foo);

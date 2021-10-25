@@ -1,3 +1,5 @@
+export './foo/foo.dart';
+
 import 'package:flutter/services.dart';
 
 class TemplatePlugin {

@@ -1,0 +1,3 @@
+<template name="com.mpflutter.foo">
+  <view id="d_{{rt.id}}" style="position:absolute;width:100%;height:100%;background-color: brown;"></view>
+</template>
