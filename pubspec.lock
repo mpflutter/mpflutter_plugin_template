@@ -39,19 +39,17 @@ packages:
   flutter:
     dependency: "direct main"
     description:
-      path: "packages/flutter"
-      ref: HEAD
-      resolved-ref: d1d6d47b9b518ca83f44c5c3a86626d71221d8fe
-      url: "https://github.com/mpflutter/mpflutter"
-    source: git
-    version: "0.0.0"
+      name: flutter
+      url: "https://pub.mpflutter.com"
+    source: hosted
+    version: "0.10.1"
   glob:
     dependency: transitive
     description:
       name: glob
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   json_patch:
     dependency: transitive
     description:
@@ -76,12 +74,10 @@ packages:
   mpcore:
     dependency: "direct main"
     description:
-      path: "packages/mpcore"
-      ref: HEAD
-      resolved-ref: d1d6d47b9b518ca83f44c5c3a86626d71221d8fe
-      url: "https://github.com/mpflutter/mpflutter"
-    source: git
-    version: "0.0.1"
+      name: mpcore
+      url: "https://pub.mpflutter.com"
+    source: hosted
+    version: "0.10.1"
   path:
     dependency: transitive
     description:
@@ -89,13 +85,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.8.0"
-  pedantic:
-    dependency: transitive
-    description:
-      name: pedantic
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.11.1"
   source_span:
     dependency: transitive
     description:
@@ -124,6 +113,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.3.0"
+  usage:
+    dependency: transitive
+    description:
+      name: usage
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.2"
   vector_math:
     dependency: transitive
     description:
@@ -144,6 +140,6 @@ packages:
       name: watcher
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=2.14.0 <3.0.0"

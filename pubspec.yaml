@@ -2,7 +2,6 @@ name: mpflutter_plugin_template
 description: The MPFlutter plugin template.
 publish_to: none
 version: 0.0.1
-author: /
 homepage: /
 
 environment:
@@ -10,11 +9,20 @@ environment:
 
 dependencies:
   flutter: 
-    git: 
-      url: https://github.com/mpflutter/mpflutter
-      path: packages/flutter
+    hosted:
+      name: flutter
+      url: https://pub.mpflutter.com
   mpcore: 
-    git: 
-      url: https://github.com/mpflutter/mpflutter
-      path: packages/mpcore
+    hosted:
+      name: mpcore
+      url: https://pub.mpflutter.com
   
+dependency_overrides:
+  flutter: 
+    hosted:
+      name: flutter
+      url: https://pub.mpflutter.com
+  mpcore: 
+    hosted:
+      name: mpcore
+      url: https://pub.mpflutter.com
