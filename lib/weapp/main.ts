@@ -1,4 +1,4 @@
-/// <reference path="./plugin.d.ts" />
+/// <reference path="../typing/mpflutter.d.ts" />
 
 export class TemplatePlugin implements MPPlugin {
   sayHello() {
@@ -6,11 +6,11 @@ export class TemplatePlugin implements MPPlugin {
   }
 
   getHello() {
-    return "Hello, World!"; 
+    return "Hello, World!";
   }
 }
 
-export class TemplatePluginEvent implements MPPluginEvent {
+export class TemplatePluginEvent implements MPPluginWithEventChannel {
   private intervalHandler: any;
 
   listen(params: any, eventSink: (data: string) => void) {

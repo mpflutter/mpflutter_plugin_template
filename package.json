@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "build": "tsc && cd dist && browserify plugin.js > ../index.js && uglifyjs ../index.js -m > ../index.min.js && cd .. && rm -rf dist && mkdir dist && mv index.min.js dist/index.min.js && rm index.js"
+    "build": "node build.js"
   },
   "author": "",
   "license": "ISC",
