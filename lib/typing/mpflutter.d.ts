@@ -1,21 +1,19 @@
-declare interface MPEnv {
-  platformType: number; // unknown = 0, browser = 1, wxMiniProgram = 2, swanMiniProgram = 3.
-  platformScope: any;
-  platformAppInstance: any;
-  platformGlobal: () => any;
-}
-
 declare class MPPluginRegisterer {
-  env: MPEnv;
-  registerPlugin(name: string, instance: MPPlugin): void;
-  registerPlatformView(name: string, viewClas: typeof MPPlatformView): void;
+  registerChannel(
+    name: string,
+    instance: typeof MPMethodChannel | typeof MPEventChannel
+  ): void;
+  registerPlatformView(name: string, viewClass: typeof MPPlatformView): void;
 }
 
-declare interface MPPlugin {}
+declare class MPMethodChannel {
+  onMethodCall(method: string, params: any): Promise<any> | any;
+  invokeMethod<T>(method: string, params: any): Promise<T> | T;
+}
 
-declare interface MPPluginWithEventChannel {
-  listen(params: any, eventSink: (data: string) => void);
-  close();
+declare class MPEventChannel {
+  onListen(params: any, eventSink: (data: string) => void);
+  onCancel(params: any);
 }
 
 declare interface MPConstraints {

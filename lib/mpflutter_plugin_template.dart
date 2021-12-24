@@ -1,24 +1,16 @@
 import 'package:flutter/services.dart';
 
 class TemplatePlugin {
-  static MethodChannel methodChannel =
-      MethodChannel('com.mpflutter.template_plugin');
-  static EventChannel eventChannel =
-      EventChannel('com.mpflutter.template_plugin_event');
+  static MethodChannel methodChannel = MethodChannel(
+    'com.mpflutter.templateMethodChannel',
+  );
 
-  static sayHello() {
-    methodChannel.invokeMethod('sayHello');
-  }
+  static EventChannel eventChannel = EventChannel(
+    'com.mpflutter.template_plugin_event',
+  );
 
-  static Future<String> getHello() async {
-    final text = await methodChannel.invokeMethod('getHello');
-    print('The text = ' + text);
+  static Future<String> getDeivceName() async {
+    final text = await methodChannel.invokeMethod('getDeviceName');
     return text;
-  }
-
-  static installEventListener() {
-    eventChannel.receiveBroadcastStream({"a": "b"}).listen((event) {
-      print(event);
-    });
   }
 }

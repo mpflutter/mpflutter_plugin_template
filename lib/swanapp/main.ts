@@ -1,25 +1,27 @@
 /// <reference path="../typing/mpflutter.d.ts" />
+declare let swan: any;
 
-export class TemplatePlugin implements MPPlugin {
-  sayHello() {
-    console.log("Hello, World!");
-  }
-
-  getHello() {
-    return "Hello, World!";
+export class TemplateMethodChannel extends MPMethodChannel {
+  async onMethodCall(method: string, params: any): Promise<any> {
+    if (method === "getDeviceName") {
+      const caller = await this.invokeMethod("getCallerName", {});
+      return `${caller} on ${swan.getSystemInfoSync().model}`;
+    } else {
+      throw new Error("Method not implemented.");
+    }
   }
 }
 
-export class TemplatePluginEvent implements MPPluginWithEventChannel {
+export class TemplateEventChannel extends MPEventChannel {
   private intervalHandler: any;
 
-  listen(params: any, eventSink: (data: string) => void) {
+  onListen(params: any, eventSink: (data: string) => void) {
     this.intervalHandler = setInterval(() => {
-      eventSink?.(JSON.stringify({ lon: 123.0, lat: 321.0 }));
-    }, 5000);
+      eventSink(new Date().toISOString());
+    }, 1000);
   }
 
-  close() {
+  onCancel(params: any) {
     if (this.intervalHandler) {
       clearInterval(this.intervalHandler);
       this.intervalHandler = undefined;
@@ -27,11 +29,12 @@ export class TemplatePluginEvent implements MPPluginWithEventChannel {
   }
 }
 
-pluginRegisterer.registerPlugin(
-  "com.mpflutter.template_plugin",
-  new TemplatePlugin()
+pluginRegisterer.registerChannel(
+  "com.mpflutter.templateMethodChannel",
+  TemplateMethodChannel
 );
-pluginRegisterer.registerPlugin(
-  "com.mpflutter.template_plugin_event",
-  new TemplatePluginEvent()
+
+pluginRegisterer.registerChannel(
+  "com.mpflutter.templateEventChannel",
+  TemplateEventChannel
 );
