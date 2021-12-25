@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:mpcore/mpcore.dart';
 
 class TemplatePlugin {
   static MethodChannel methodChannel = MethodChannel(
@@ -13,4 +14,15 @@ class TemplatePlugin {
     final text = await methodChannel.invokeMethod('getDeviceName');
     return text;
   }
+}
+
+class TemplateFooView extends MPPlatformView {
+  final String? text;
+
+  TemplateFooView({
+    this.text,
+  }) : super(
+          viewType: 'com.mpflutter.templateFooView',
+          viewAttributes: {'text': text},
+        );
 }

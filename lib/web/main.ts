@@ -1,5 +1,7 @@
 /// <reference path="../typing/mpflutter.d.ts" />
 
+import { FooView } from "./foo_view";
+
 export class TemplateMethodChannel extends MPMethodChannel {
   async onMethodCall(method: string, params: any): Promise<any> {
     if (method === "getDeviceName") {
@@ -37,3 +39,5 @@ pluginRegisterer.registerChannel(
   "com.mpflutter.templateEventChannel",
   TemplateEventChannel
 );
+
+pluginRegisterer.registerPlatformView("com.mpflutter.templateFooView", FooView);
