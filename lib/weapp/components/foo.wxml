@@ -1,0 +1,3 @@
+<view class="foo">
+{{text}}
+</view>
