@@ -3,6 +3,7 @@ let ReactDOM = window.ReactDOM;
 
 interface FooProps {
   text?: string;
+  onClick?: (value: string) => void;
 }
 
 class Foo extends React.Component<FooProps> {
@@ -16,6 +17,9 @@ class Foo extends React.Component<FooProps> {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+        }}
+        onClick={() => {
+          this.props.onClick?.("tttt");
         }}
       >
         {this.props.text}
@@ -34,6 +38,14 @@ export class FooView extends MPPlatformView {
 
   setAttributes(attributes: any): void {
     super.setAttributes(attributes);
-    ReactDOM.render(<Foo text={attributes.text} />, this.htmlElement);
+    ReactDOM.render(
+      <Foo
+        text={attributes.text}
+        onClick={(value) => {
+          this.invokeMethod("click", { value: value });
+        }}
+      />,
+      this.htmlElement
+    );
   }
 }

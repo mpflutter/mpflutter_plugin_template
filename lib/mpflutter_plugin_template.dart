@@ -24,5 +24,10 @@ class TemplateFooView extends MPPlatformView {
   }) : super(
           viewType: 'com.mpflutter.templateFooView',
           viewAttributes: {'text': text},
+          onMethodCall: (method, params) {
+            MPWebDialogs.alert(
+              message: 'method = $method, params = $params',
+            );
+          },
         );
 }

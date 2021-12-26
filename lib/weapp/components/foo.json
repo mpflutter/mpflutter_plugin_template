@@ -3,5 +3,5 @@
   "usingComponents": {},
   "props": ["text"],
   "propsVal": [""],
-  "events": []
+  "events": ["mockclick"]
 }
