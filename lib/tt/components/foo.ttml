@@ -1,3 +1,0 @@
-<view class="foo" bindtap="onTap">
-{{text}}
-</view>
